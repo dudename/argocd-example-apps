@@ -3,7 +3,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ printf "example.%s" .name | quote }}
+  name: {{ printf "auto.%s" .name | quote }}
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -14,8 +14,8 @@ spec:
   project: default
   source:
     path: {{ .path | default .name | quote }}
-    repoURL: {{ .repoURL |default $config.spec.source.repoURL  | quote }}
-    targetRevision: {{ $config.spec.source.targetRevision }}
+    repoURL: {{ .repoURL | default $config.spec.source.repoURL  | quote }}
+    targetRevision: {{ .targetRevision | default $config.spec.source.targetRevision }}
     {{- with .tool }}
     {{- . | toYaml | nindent 4 }}
     {{- end }}
