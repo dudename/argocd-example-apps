@@ -11,11 +11,14 @@ applications:
     tool:
       helm:
         releaseName: blue-green
-  - name: cilium
-    repoURL: https://github.com/cilium/cilium/
-    targetRevision: v1.18.3
-    path: install/kubernetes/cilium
-    namespace: kube-system
+#  - name: cilium
+#    repoURL: https://github.com/cilium/cilium/
+#    targetRevision: v1.18.3
+#    path: install/kubernetes/cilium
+#    namespace: kube-system
+  - name: percona-operator
+    path: ps-operator
+    namespace: mysql-cluster
 
 #  - name: guestbook
 #  - name: helm-dependency
