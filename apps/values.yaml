@@ -7,10 +7,6 @@ config:
       targetRevision: master
 
 applications:
-  - name: blue-green
-    tool:
-      helm:
-        releaseName: blue-green
 #  - name: cilium
 #    repoURL: https://github.com/cilium/cilium/
 #    targetRevision: v1.18.3
@@ -18,6 +14,10 @@ applications:
 #    namespace: kube-system
   - name: percona-operator
     path: ps-operator
+    namespace: mysql-cluster
+
+  - name: percona-db-cluster
+    path: ps-db
     namespace: mysql-cluster
 
 #  - name: guestbook
